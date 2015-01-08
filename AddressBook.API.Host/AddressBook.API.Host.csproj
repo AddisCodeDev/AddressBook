@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Npgsql">
+      <HintPath>..\AddressBook.API.DataContext\bin\Debug\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack">
       <HintPath>..\packages\ServiceStack.3.9.71\lib\net35\ServiceStack.dll</HintPath>
     </Reference>
@@ -50,6 +53,9 @@
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
       <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.71\lib\net35\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.PostgreSQL">
+      <HintPath>F:\SourceControl\SMSService\SMSService\packages\ServiceStack.OrmLite.PostgreSQL.3.9.71\lib\net35\ServiceStack.OrmLite.PostgreSQL.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite.SqlServer">
       <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.71\lib\net35\ServiceStack.OrmLite.SqlServer.dll</HintPath>
@@ -81,6 +87,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -93,7 +100,28 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AddressBook.API.DataContext\AddressBook.API.DataContext.csproj">
+      <Project>{7be31ff0-22ea-4d04-8e6b-cec6633e31d5}</Project>
+      <Name>AddressBook.API.DataContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AddressBook.API.DataInterface\AddressBook.API.DataInterface.csproj">
+      <Project>{4617f626-6268-4e8b-b564-f953d66e8c81}</Project>
+      <Name>AddressBook.API.DataInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AddressBook.API.DataModel\AddressBook.API.DataModel.csproj">
+      <Project>{ae5f290e-a0df-408e-8841-d3d26f49af16}</Project>
+      <Name>AddressBook.API.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AddressBook.API.Service\AddressBook.API.Service.csproj">
+      <Project>{16dddb22-4ad4-4a47-a977-f8fa713cfcef}</Project>
+      <Name>AddressBook.API.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
